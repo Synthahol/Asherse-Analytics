@@ -1,0 +1,319 @@
+@import url(../css/rajdhani.css);
+
+/* Variables */
+:root {
+    --c-dark: #212529;
+    --c-brand: #4e57d4;
+    --c-brand-light: rgb(108, 204, 237);
+    --c-brand-rgb: 78, 87, 212;
+    --c-body:#c3bdbd;
+    --font-base: "Rajdhani", sans-serif;
+    --box-shadow: 0 15px 20px rgba(0, 0, 0, 0.425);
+    --transition: all 0.5s ease;
+}
+
+/* Reset and Helpers */
+body{
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body);
+    background-color: rgba(57, 54, 54, 0.521);
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 600;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+
+a:hover {
+    color: lightgreen;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.section-padding {
+    padding-top: 40px;
+    padding-bottom: 140px;
+}
+
+.theme-shadow {
+    box-shadow: var(--box-shadow);
+}
+.head:hover {
+    color: lightgreen;
+}
+
+/*IMAGE ZOOM*/
+.image-zoom {
+    position: relative;
+    overflow: hidden;
+}
+.image-zoom-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+.image-zoom-wrapper img {
+    transition: var(--transition);
+}
+.image-zoom:hover .image-zoom-wrapper img {
+    transform: scale(1.1);
+}
+
+
+/* NAVBAR */
+nav a {
+    transition: 0.3s ease;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    padding: 20px 0;
+    margin: 0 5px;
+    font-size: 17px;
+  }
+
+nav a:hover {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0; 
+    
+  }
+
+.navbar {
+    box-shadow: var(--box-shadow);
+    background-color: transparent !important;
+    position:fixed;
+    width: 100%;
+}
+.navbar-nav .nav-link {
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--c-brand);
+    
+}
+.navbar-nav .nav-link.active {
+    color: lightgreen;
+}
+
+.nav-link:hover {
+    color: lightgreen;
+}
+
+
+/* BTN */
+.btn{
+    font-weight: 500;
+    font-size: 15px;
+    text-transform:uppercase;
+}
+.btn-brand {
+    background-color: var(--c-brand);
+    color: whitesmoke;
+}
+.btn:hover {
+    color: lightgreen
+}
+
+/* Hero */
+#hero{
+    background: linear-gradient(rgba(25, 23, 23, 0.595), rgba(20, 19, 19, 0.26)), url(../images/background.jpg);
+    background-position: center;
+    background-size:cover;
+    
+}
+
+/* Section Title */
+.section-title {
+    margin-bottom: 40px;
+}
+.section-title .line {
+    width: 500px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 15px auto 20px auto;
+}
+
+.section-title .p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ICONBOX */
+.iconbox {
+    width: 70px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--c-brand-rgb), 0.3);
+    color: lightgreen;
+    font-size: 35px;
+    flex: none;
+}
+
+/* SERVICE */
+.service {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.service::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--c-brand-rgb), 0.2);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: var(--transition);
+
+}
+
+.service:hover::after {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 80, 80, 0.26);
+    z-index: -1;
+}
+
+.service:hover h5,
+.service:hover p {
+    color: black;
+}
+
+/*COUNTER*/
+#counter{
+    background: linear-gradient(rgba(25, 23, 23, 0.8), rgba(20, 19, 19, 0.8)), url(../images/Background_photo.jpg);
+    background-position: center;
+    background-size:cover;
+}
+
+/*PORTFOLIO*/
+.portfolio-item .iconbox{
+    background-color: var(--c-brand);
+    color: lightgreen;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+.portfolio-item:hover .iconbox{
+    opacity: 1;
+    top: 50%;
+}
+
+/*REVIEWS/TESTIMONIALS*/
+.reviewer-title {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--c-brand);
+}
+
+.reviewer_image {
+    width: 25%;
+    height: auto;
+}
+.review-head {
+    position: relative;
+    background-color: rgb(49, 46, 46);
+}
+.review-head::after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: -14px;
+    left: 35px;
+    background-color: rgba(49, 46, 46);
+    transform: rotate(45deg)
+}
+
+/* CONTACT */
+#contact {
+    position: relative;
+    z-index: 2;
+}
+#contact::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(rgba(25, 23, 23, 0.8), rgba(20, 19, 19, 0.8)), url(../images/Background_photo.jpg);
+    background-position: center;
+    background-size:cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+#contact .form-control {
+    border-radius: 0;
+}
+#contact .form-control:focus {
+    box-shadow: none;
+    color: var(--c-brand);
+}
+
+/* FOOTER */
+footer {
+    padding-top: 120px;
+}
+
+.footer-top {
+    padding-bottom: 40px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.292);
+}
+
+.footer-bottom{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+footer li,
+footer p,
+footer a {
+    color: rgba(255, 255, 255, 0.725);
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer .line {
+    width: 85px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin-top: 12px;
+    margin-bottom: 24px;
+
+}
+
+.social-icons a{
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.555);
+    border-radius: 100px;
+}
+
+.social-icons a:hover {
+    background-color: var(--c-brand);
+    color: lightgreen;
+}
