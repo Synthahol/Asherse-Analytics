@@ -23,7 +23,11 @@
 }
 
 html, body {
+    width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {
@@ -125,6 +129,10 @@ footer a:hover {
 }
 
 /* NAVBAR */
+nav {
+    width: 100%;
+}
+
 nav a {
     transition: 0.3s ease;
     color: white;
@@ -185,6 +193,7 @@ nav a:hover {
     background: linear-gradient(rgba(25, 23, 23, 0.595), rgba(20, 19, 19, 0.26)), url(../images/background.jpg);
     background-position: center;
     background-size: cover;
+    width: 100%; /* Ensure the hero section takes the full width */
 }
 
 /* Section Title */
@@ -219,6 +228,10 @@ nav a:hover {
 
 /* SERVICE */
 .service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Ensure it takes up the full height available */
     position: relative;
     overflow: hidden;
     z-index: 2;
@@ -252,6 +265,7 @@ nav a:hover {
     background: linear-gradient(rgba(25, 23, 23, 0.8), rgba(20, 19, 19, 0.8)), url(../images/Background_photo.jpg);
     background-position: center;
     background-size: cover;
+    width: 100%; /* Ensure the counter section takes the full width */
 }
 
 /* PORTFOLIO */
@@ -274,6 +288,7 @@ nav a:hover {
 #contact {
     position: relative;
     z-index: 2;
+    width: 100%; /* Ensure the contact section takes the full width */
 }
 
 #contact::after {
@@ -302,6 +317,7 @@ nav a:hover {
     min-height: 100vh; /* Ensure the section takes at least the full viewport height */
     display: flex;
     flex-direction: column;
+    width: 100%; /* Ensure the blog section takes the full width */
 }
 
 #blog .container {
@@ -363,24 +379,16 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .centered-list li {
+}
+
+.centered-list li {
     display: list-item; /* Default display for list items */
     text-align: center; /* Center-align the text within the list items */
     width: 100%; /* Ensure items take full width */
-  }
-  
-  .service {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1; /* Ensure it takes up the full height available */
-  }
-  
-  .service h5 {
+}
+
+.service h5 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
-  }
-  
+}
