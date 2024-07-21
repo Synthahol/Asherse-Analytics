@@ -1,12 +1,21 @@
+import logging
 import os
 
 from dotenv import load_dotenv
 from flask import Flask, flash, redirect, render_template
-from flask_mail import Mail, Message
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
+
+from extensions import mail
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[logging.FileHandler("app.log"), logging.StreamHandler()],
+)
 
 # Load environment variables
 load_dotenv()
@@ -22,7 +31,7 @@ app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER")
 
-mail = Mail(app)
+mail.init_app(app)
 csrf = CSRFProtect(app)
 
 
@@ -46,15 +55,18 @@ def home():
         subject = form.subject.data
         message = form.message.data
 
-        msg = Message(subject=subject, recipients=[app.config["MAIL_USERNAME"]])
-        msg.body = f"From: {first_name} {last_name} <{email}>\n\n{message}"
+        from email_utils import (
+            send_email,  # Move the import here to avoid circular import
+        )
 
-        try:
-            mail.send(msg)
-            flash("Email sent successfully", "success")
-        except Exception as e:
-            app.logger.error(f"Error sending email: {e}")
-            flash(f"An error occurred: {str(e)}", "danger")
+        body = f"From: {first_name} {last_name} <{email}>\n\n{message}"
+        success, msg = send_email(subject, [app.config["MAIL_USERNAME"]], body)
+        if success:
+            flash(msg, "success")
+            logging.info(f"Email sent successfully to {email}")
+        else:
+            flash(f"An error occurred: {msg}", "danger")
+            logging.error(f"Failed to send email to {email}: {msg}")
 
         return redirect("/")
 
@@ -62,4 +74,5 @@ def home():
 
 
 if __name__ == "__main__":
+    logging.info("Starting the Flask application...")
     app.run(debug=True)

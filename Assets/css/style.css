@@ -10,6 +10,9 @@
     --font-base: "Rajdhani", sans-serif;
     --box-shadow: 0 15px 20px rgba(0, 0, 0, 0.425);
     --transition: all 0.5s ease;
+    --bg-dark: rgba(57, 54, 54, 0.521);
+    --hover-color: lightgreen;
+    --footer-height: 50px;
 }
 
 /* Reset and Helpers */
@@ -29,7 +32,7 @@ body {
     font-family: var(--font-base);
     line-height: 1.7;
     color: var(--c-body);
-    background-color: rgba(57, 54, 54, 0.521);
+    background-color: var(--bg-dark);
 }
 
 .content-wrapper {
@@ -40,7 +43,7 @@ body {
 footer {
     background-color: var(--c-dark);
     color: white;
-    height: 50px;
+    height: var(--footer-height);
 }
 
 .footer-content {
@@ -99,7 +102,7 @@ footer a:hover {
 }
 
 .head:hover {
-    color: lightgreen;
+    color: var(--hover-color);
 }
 
 /* IMAGE ZOOM */
@@ -154,11 +157,11 @@ nav a:hover {
 }
 
 .navbar-nav .nav-link.active {
-    color: lightgreen;
+    color: var(--hover-color);
 }
 
 .nav-link:hover {
-    color: lightgreen !important;
+    color: var(--hover-color) !important;
 }
 
 /* BTN */
@@ -174,7 +177,7 @@ nav a:hover {
 }
 
 .btn:hover {
-    color: lightgreen;
+    color: var(--hover-color);
 }
 
 /* Hero */
@@ -209,7 +212,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     background: rgba(var(--c-brand-rgb), 0.3);
-    color: lightgreen;
+    color: var(--hover-color);
     font-size: 35px;
     flex: none;
 }
@@ -254,7 +257,7 @@ nav a:hover {
 /* PORTFOLIO */
 .portfolio-item .iconbox {
     background-color: var(--c-brand);
-    color: lightgreen;
+    color: var(--hover-color);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -266,7 +269,6 @@ nav a:hover {
     opacity: 1;
     top: 50%;
 }
-
 
 /* CONTACT */
 #contact {
@@ -333,3 +335,52 @@ nav a:hover {
     display: flex;
     align-items: center;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 24px;
+    }
+
+    .section-title .line {
+        width: 100%;
+    }
+}
+
+.centered-list {
+    list-style-position: inside; /* Ensure bullets are inside the list items */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .centered-list li {
+    display: list-item; /* Default display for list items */
+    text-align: center; /* Center-align the text within the list items */
+    width: 100%; /* Ensure items take full width */
+  }
+  
+  .service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Ensure it takes up the full height available */
+  }
+  
+  .service h5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
